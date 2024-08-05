@@ -22,5 +22,4 @@ wget -N https://huggingface.co/BlinkDL/rwkv-6-world/resolve/main/RWKV-x060-World
 sudo apt-get install -y ubuntu-drivers-common
 sudo apt-get install -y nvidia-driver-535
 
-touch ~/install_done
 echo "install success"
