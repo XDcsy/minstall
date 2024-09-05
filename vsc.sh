@@ -7,3 +7,5 @@ sudo systemctl enable --now code-server@$USER
 sudo -i
 passwd moomtong
 echo "moomtong ALL=(ALL) ALL" | sudo tee -a /etc/sudoers
+
+sudo ln -s /usr/bin/python3 /usr/bin/python
