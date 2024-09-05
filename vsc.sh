@@ -9,3 +9,5 @@ vim ~/.config/code-server/config.yaml
 sudo systemctl enable --now code-server@$USER
 
 sudo ln -s /usr/bin/python3 /usr/bin/python
+
+bash
