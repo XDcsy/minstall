@@ -9,12 +9,11 @@ vim ~/.config/code-server/config.yaml
 sudo setcap cap_net_bind_service=+ep /usr/lib/code-server/lib/node
 sudo systemctl enable --now code-server@$USER
 
-#用firefox访问
+#用firefox访问 https://ip
 
-
+# =============================================================================
+# vscode内
 sudo ln -s /usr/bin/python3 /usr/bin/python
 
-
-
-# 在 CodeServer 中，按 Ctrl + , 打开设置页面搜索 default profile，改成 bash
+# 在 CodeServer 中，打开设置页面搜索 default profile，改成 bash
 bash
