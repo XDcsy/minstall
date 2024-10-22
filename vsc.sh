@@ -14,6 +14,8 @@ sudo systemctl enable --now code-server@$USER
 # =============================================================================
 # vscode内
 sudo ln -s /usr/bin/python3 /usr/bin/python
+wget -N  https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
 
 # 在 CodeServer 中，打开设置页面搜索 default profile，改成 bash
 bash
