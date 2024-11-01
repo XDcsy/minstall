@@ -19,6 +19,7 @@ fi
 wget -N https://huggingface.co/BlinkDL/rwkv-6-world/resolve/main/RWKV-x060-World-14B-v2.1-20240719-ctx4096.pth -P models/
 
 sudo apt-get install -y ubuntu-drivers-common
+# ubuntu-drivers devices
 sudo apt-get install -y nvidia-driver-535
 
 echo "install success"
