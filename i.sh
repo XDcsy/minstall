@@ -6,7 +6,6 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 
 git clone https://github.com/josStorer/RWKV-Runner
-# python3 -m pip install torch torchvision torchaudio
 python3 -m pip install -r RWKV-Runner/backend-python/requirements.txt
 cd RWKV-Runner/frontend
 npm ci
