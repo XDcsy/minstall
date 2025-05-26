@@ -26,3 +26,7 @@ python get-pip.py
 
 # 在 CodeServer 中，打开设置页面搜索 default profile，改成 bash
 bash
+
+pip3 install notebook
+# vscode安装jupyter插件
+# vscode搜索栏 > create new jupyter notebook
