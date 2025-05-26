@@ -7,6 +7,7 @@ sudo apt-get install -y nodejs
 
 git clone https://github.com/josStorer/RWKV-Runner
 python3 -m pip install -r RWKV-Runner/backend-python/requirements.txt
+# pip install accelerate # for transformer models
 cd RWKV-Runner/frontend
 npm ci
 npm run build
