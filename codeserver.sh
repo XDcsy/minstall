@@ -54,13 +54,25 @@ chmod +x install.sh
 echo "[INFO] Running installer..."
 sh install.sh
 
-echo "[INFO] Initialize code-server once to generate config dir..."
-set +e
-sudo -u "$TARGET_USER" -H code-server >/dev/null 2>&1
-set -e
-
 CONFIG_DIR="$TARGET_HOME/.config/code-server"
 CONFIG_FILE="$CONFIG_DIR/config.yaml"
+
+echo "[INFO] Initialize code-server once to generate config dir..."
+# 后台启动一次，等配置出现后立即停掉（避免看起来“卡住”）
+sudo -u "$TARGET_USER" -H code-server >/dev/null 2>&1 &
+CS_PID=$!
+
+# 等待配置目录/文件出现（最多 15 秒）
+for i in $(seq 1 15); do
+  if [[ -d "$CONFIG_DIR" ]] || [[ -f "$CONFIG_FILE" ]]; then
+    break
+  fi
+  sleep 1
+done
+
+# 停掉这次启动（符合“运行一次然后结束”）
+kill "$CS_PID" >/dev/null 2>&1 || true
+wait "$CS_PID" >/dev/null 2>&1 || true
 
 echo "[INFO] Writing config: $CONFIG_FILE"
 mkdir -p "$CONFIG_DIR"
