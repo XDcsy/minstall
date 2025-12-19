@@ -17,8 +17,7 @@ fi
 TARGET_USER="${SUDO_USER:-$USER}"
 TARGET_HOME="$(eval echo "~${TARGET_USER}")"
 
-# 你需要把这里改成你想要的密码
-PASSWORD="CHANGE_ME"
+PASSWORD="let'srapewangyue"
 
 need_cmd() { command -v "$1" >/dev/null 2>&1; }
 
