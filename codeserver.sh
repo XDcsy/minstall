@@ -3,7 +3,7 @@
 # 使用说明
 if [ $# -ne 1 ]; then
     echo "用法: $0 <port>"
-    echo "示例: $0 8080"
+    echo "示例: $0 8800"
     exit 1
 fi
 
@@ -13,9 +13,15 @@ CONFIG_FILE="$CONFIG_DIR/config.yaml"
 
 echo "开始安装 code-server..."
 
-# 下载并执行官方安装脚本
-curl -O https://raw.githubusercontent.com/coder/code-server/main/install.sh
+# 用 wget 下载并执行官方安装脚本（先检查 wget 是否存在）
+if ! command -v wget &> /dev/null; then
+    echo "wget 未找到，正在安装 wget..."
+    apt update && apt install -y wget
+fi
+
+wget -O install.sh https://code-server.dev/install.sh
 sh install.sh
+rm -f install.sh  # 清理下载的文件
 
 echo "首次运行 code-server 以初始化配置文件..."
 code-server &>/dev/null &
@@ -43,5 +49,3 @@ echo "启用并启动 code-server systemd 服务..."
 systemctl enable --now code-server@"$USER"
 
 echo "安装完成！"
-echo "访问地址: https://你的IP:$PORT（自签名证书，可能有浏览器警告）"
-echo "登录密码: let'srapewangyue"
